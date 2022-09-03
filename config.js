@@ -40,7 +40,7 @@ let fs = require('fs')
 
 global.owner = ['6281646829895']
 global.mods = ['6289531704997']
-global.prems = JSON.parse(fs.readFileSync('./src/premium.json'))
+global.prems = ['6281646829895']
 
 
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ WM ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
