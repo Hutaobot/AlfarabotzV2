@@ -1,5 +1,4 @@
 let fs = require('fs')
-let chalk = require('chalk')
 /*
 ⫰⫯ Note!! Kalo Mau Hapus Ngotak Dulu,Siapa Yg Buat Siapa Yg Kerja Siapa Yang Nyediain Scriptnya
 
@@ -39,14 +38,10 @@ let chalk = require('chalk')
 */
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ NO OWNER ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
 
-owner = [
-  ['6281646829895'],
-  ['6289531704997'],
-  ['6281646829895', 'Irfaan Official', true]
-  // [number, dia creator/owner?, dia developer?]
-] // Put your number here
-mods = [] // Want some help?
-prems = [] // Premium user has unlimited limit
+global.owner = ['6281646829895']
+global.mods = ['6289531704997']
+global.mods = ['6281646829895']
+global.prems = ['6281646829895']
 
 
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ WM ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
