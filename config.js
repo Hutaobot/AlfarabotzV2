@@ -38,9 +38,14 @@ let fs = require('fs')
 */
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ NO OWNER ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
 
-global.owner = ['6281646829895']
-global.mods = ['6289531704997']
-global.prems = ['6281646829895']
+owner = [
+  ['6281646829895'],
+  ['6289531704997'],
+  ['6281646829895', 'Irfaan Official', true]
+  // [number, dia creator/owner?, dia developer?]
+] // Put your number here
+mods = [] // Want some help?
+prems = [] // Premium user has unlimited limit
 
 
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ WM ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
