@@ -3,7 +3,7 @@ let chalk = require('chalk')
 
 owner = [
   ['6281646829895'],
-  ['6285624823115'],
+  ['6289531704997'],
   ['6281646829895', 'Irfaan Official', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
@@ -58,8 +58,9 @@ fs.watchFile(file_exif, () => {
 // Sticker WM
 packname = sticker_name
 author = sticker_author
-global.namebot = '​ Alfarabotz'
 wm = '© Irfaan Official'
+
+Intervalmsg = 1800 //detik
 
 multiplier = 1000 // The higher, The harder levelup
 
