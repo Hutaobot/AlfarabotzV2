@@ -1,38 +1,41 @@
-let fs = require('fs') 
+let fs = require('fs')        
 let chalk = require('chalk')
-
-owner = [
+global.owner = [
   ['6281646829895'],
-  ['6289531704997'],
-  ['6281646829895', 'Irfaan Official', true]
-  // [number, dia creator/owner?, dia developer?]
-] // Put your number here
-mods = [] // Want some help?
-prems = [] // Premium user has unlimited limit
-APIs = { // API Prefix
-  // name: 'https://website'
+  ['6285624813115'],
+  ['6285624823115', 'Irfaan Official', true]  
+  
+] 
+global.ownername = [['Irfaan Official']]
+global.namabot = [['Alfarabotz']]
+global.ownerinsta = [['']]
+global.instalu = [['instagram.com/Irfaanabdulhafizh']]
+global.ytlu = [['https://youtube.com/channel/UCaFh82MyrVgcgIvJxvTA39w']]
+global.mods = [] 
+global.prems = ['6281646829895'] 
+
+global.APIs = { 
   nrtm: 'https://nurutomo.herokuapp.com',
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
   bcil: 'https://75.119.137.248:21587',
   neoxr: 'https://api.neoxr.eu.org/',
-  zeks: 'https://api.zeks.me',
   gimez: 'https://masgimenz.my.id/',
   melcanz: 'https://melcanz.com',
   pencarikode: 'https://pencarikode.xyz',
   LeysCoder: 'https://leyscoders-api.herokuapp.com',
-  restapi: 'https://x-restapi.herokuapp.com'
+  restapi: 'https://x-restapi.herokuapp.com',
+  alphabot: 'https://api-alphabot.herokuapp.com'
 }
-APIKeys = { // APIKey Here
-  // 'https://website': 'apikey'
-  'https://api.xteam.xyz': 'apikeyaine',
+global.APIKeys = { 
+  'https://api.xteam.xyz': '524e9d1f64f72f79',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
-  'https://api.neoxr.eu.org/': 'jVEMyB2ITJ',
-  'https://api.zeks.me': 'apikeyaine',
+  'https://api.neoxr.eu.org/': '0fWgL9ID',
   'https://pencarikode.xyz': 'pais',
   'https://melcanz.com': 'ZZBk7EBb',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll',
-  'https://x-restapi.herokuapp.com': 'BETA'
+  'https://x-restapi.herokuapp.com': 'BETA',
+  'https://api-alphabot.herokuapp.com': 'N7axnIq3'
 }
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
@@ -40,8 +43,8 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 const spack = fs.readFileSync("lib/exif.json")
 const stickerpack = JSON.parse(spack)
 if (stickerpack.spackname == '') {
-  var sticker_name = '@Alfarabotz'
-  var sticker_author = 'Irfaan Official'
+  var sticker_name = 'Irfaan Official'
+  var sticker_author = '© Alfarabotz'
 } else {
   var sticker_name = stickerpack.spackname
   var sticker_author = stickerpack.sauthor
@@ -56,15 +59,13 @@ fs.watchFile(file_exif, () => {
 })
 
 // Sticker WM
-packname = sticker_name
-author = sticker_author
-wm = '© Irfaan Official'
+global.packname = 'Irfaan Official'
+global.author = 'Alfarabotz'
+global.wm = '© Irfaan Official'
 
-Intervalmsg = 1800 //detik
+global.multiplier = 100
 
-multiplier = 1000 // The higher, The harder levelup
-
-rpg = {
+global.rpg = {
   emoticon(string) {
     string = string.toLowerCase()
     let emot = {
