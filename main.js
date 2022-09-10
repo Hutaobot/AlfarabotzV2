@@ -1,52 +1,24 @@
-/*𝐀𝐮𝐭𝐡𝐨𝐫 : Irfaan Official 
-𝐖𝐚 : 085624823115
-𝐛𝐚𝐬𝐞 : 𝑁𝑎𝑟𝑢𝑡𝑜𝑚𝑜
-𝐌𝐲 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 : 22 𝐴𝑔𝑢𝑠𝑡𝑢𝑠 2022
-
-⫹❰⫺ 𝐵𝐼𝐺 𝑇𝐻𝐴𝑁𝐾𝑆 𝑇𝑂 ⫹❱⫺
-⭝ 𝑨𝒍𝒍𝒂𝒉 𝒀𝒂𝒏𝒈 𝑴𝒂𝒉𝒂 𝑬𝒔𝒂
-⭝ 𝑶𝒓𝒂𝒏𝒈 𝑻𝒖𝒂
-⭝ 𝑻𝒆𝒎𝒆𝒏 𝑮𝒘
-⭝ 𝑴𝒂𝒔𝒕𝒂𝒉 𝑴𝒂𝒔𝒕𝒂𝒉
-
-⫹⫺ 𝑇𝒉𝑒 𝑁𝑎𝑚𝑒 𝑇𝒉𝑎𝑡 𝐻𝑒𝑙𝑝𝑒𝑑 𝑀𝑒 ⫹⫺
-⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔⸔
-⭝ 𝑨𝒅𝒊𝒘𝒂𝒋𝒊𝒔𝒉𝒊𝒏𝒈
-⭝ 𝑵𝒂𝒓𝒖𝒕𝒐𝒎𝒐
-⭝ 𝑹𝒊𝒔𝒎𝒂𝑩𝒐𝒕𝒛 𝑶𝒇𝒇𝒄
-⭝ 𝑱𝒂𝒓𝒐𝒕 𝑶𝒇𝒇𝒄
-⭝ 𝑯𝒚𝒛𝒆𝒓 Official
-⭝ 𝑫𝒆𝒇𝒇𝒓𝒊 Gans
-⭝ Irfaan Official
-⭝ Aldi Ofc
-⭝ 𝑲𝒂𝒏𝒏𝒂𝑪𝒉𝒂𝒏
-⭝ 𝑪𝒉𝒓𝒊𝒔𝒕𝒊𝒂𝒏 𝑰𝒅
-⭝ 𝑨𝒊𝒏𝒆
-⭝ 𝑨𝒓𝒊𝒇𝒇𝒃
-⭝ 𝑰𝒍𝒎𝒂𝒏
-⭝ 𝑨𝒎𝒊𝒓𝒖𝒍
-⭝ 𝑰𝒔𝒕𝒊𝒌𝒎𝒂𝒍
-⭝ 𝑭𝒛𝒐𝒏𝒆
-⭝ 𝑭𝒂𝑱𝒂𝒓
-⭝ 𝑨𝒓𝒖𝒍𝒍 𝑶𝒇𝒄
-⭝ 𝒁𝒆𝒆𝒐𝒏𝒆 𝑶𝒇𝒄
-⭝ 𝑹𝒂𝒎𝒍𝑎𝑛
-⭝ 𝑮𝒆𝒎𝒑𝒚𝒓𝑻𝒐𝒏
-*/
 require('./config')
 const {
   useSingleFileAuthState,
+  makeInMemoryStore,
+  makeWALegacySocket,
   DisconnectReason
 } = require('@adiwajshing/baileys')
 const WebSocket = require('ws')
 const path = require('path')
+const pino = require('pino')
+//const { prettifier } = require('pino-pretty')
 const fs = require('fs')
 const yargs = require('yargs/yargs')
 const cp = require('child_process')
 const _ = require('lodash')
 const syntaxerror = require('syntax-error')
-const P = require('pino')
+// const P = require('pino')
 const os = require('os')
+const moment = require("moment-timezone")
+const time = moment.tz('Asia/Jakarta').format("HH:mm:ss")
+const { color } = require('./lib/color')
 let simple = require('./lib/simple')
 var low
 try {
@@ -67,15 +39,18 @@ global.timestamp = {
 const PORT = process.env.PORT || 3000
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
-// console.log({ opts })
-global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
+global.prefix = new RegExp('^[' + (opts['prefix'] || 'â€ŽxzXZ/i!#$%+Â£Â¢â‚¬Â¥^Â°=Â¶âˆ†Ã—Ã·Ï€âˆšâœ“Â©Â®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
+
 
 global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
-    new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
+    new cloudDBAdapter(opts['db']) : /mongodb/i.test(opts['db']) ?
       new mongoDB(opts['db']) :
       new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
 )
+
+// global.db = new Low(new mongoDB('masukin mongodb nya disini kalau ingini'))
+
 global.DATABASE = global.db // Backwards Compatibility
 global.loadDatabase = async function loadDatabase() {
   if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
@@ -89,32 +64,62 @@ global.loadDatabase = async function loadDatabase() {
     stats: {},
     msgs: {},
     sticker: {},
+    settings: {},
     ...(global.db.data || {})
   }
   global.db.chain = _.chain(global.db.data)
 }
 loadDatabase()
 
-// if (opts['cluster']) {
-//   require('./lib/cluster').Cluster()
-// }
+
 global.authFile = `${opts._[0] || 'session'}.data.json`
-global.isInit = !fs.existsSync(authFile)
 const { state, saveState } = useSingleFileAuthState(global.authFile)
 
+//const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
+
+const logger = pino({
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      levelFirst: true, 
+      ignore: 'hostname', 
+      translateTime: true
+    }
+  }
+}).child({ class: 'baileys'})
+
 const connectionOptions = {
+  version: [2, 2208, 14],
   printQRInTerminal: true,
   auth: state,
-  logger: P({ level: 'silent' })
+  // logger: pino({ prettyPrint: { levelFirst: true, ignore: 'hostname', translateTime: true },  prettifier: require('pino-pretty') }),
+  logger: pino({ level: 'silent' })
+  // logger: P({ level: 'trace' })
 }
 
 global.conn = simple.makeWASocket(connectionOptions)
+conn.isInit = false
 
 if (!opts['test']) {
-  if (global.db) setInterval(async () => {
+  setInterval(async () => {
     if (global.db.data) await global.db.write()
-    if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp'], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
-  }, 30 * 1000)
+    if (opts['autocleartmp']) try {
+      clearTmp()
+    } catch (e) { console.error(e) }
+  }, 60 * 1000)
+}
+if (opts['server']) require('./server')(global.conn, PORT)
+if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
+function clearTmp() {
+  const tmp = [os.tmpdir(), path.join(__dirname, './tmp')]
+  const filename = []
+  tmp.forEach(dirname => fs.readdirSync(dirname).forEach(file => filename.push(path.join(dirname, file))))
+  filename.map(file => (
+    stats = fs.statSync(file),
+    stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3) ?
+      fs.unlinkSync(file) :
+      null))
 }
 
 async function connectionUpdate(update) {
@@ -126,26 +131,28 @@ async function connectionUpdate(update) {
   }
   if (global.db.data == null) await loadDatabase()
   console.log(JSON.stringify(update, null, 4))
-  if (update.receivedPendingNotifications) conn.sendMessage(`6285624823115@s.whatsapp.net`, {text: `BERHASIL TERSAMBUNG KE BOT ${global.namebot}` })
+  if (update.receivedPendingNotifications) conn.sendMessage(`6285624823115@s.whatsapp.net`, {text: 'BERHASIL Terhubung\nGunakan BOT Dengan Bijak 😉' })
 }
 
 
 process.on('uncaughtException', console.error)
 // let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
 
-const imports = (path) => {
-  path = require.resolve(path)
-  let modules, retry = 0
-  do {
-    if (path in require.cache) delete require.cache[path]
-    modules = require(path)
-    retry++
-  } while ((!modules || (Array.isArray(modules) || modules instanceof String) ? !(modules || []).length : typeof modules == 'object' && !Buffer.isBuffer(modules) ? !(Object.keys(modules || {})).length : true) && retry <= 10)
-  return modules
-}
-let isInit = true
+// const imports = (path) => {
+//   path = require.resolve(path)
+//   let modules, retry = 0
+//   do {
+//     if (path in require.cache) delete require.cache[path]
+//     modules = require(path)
+//     retry++
+//   } while ((!modules || (Array.isArray(modules) || modules instanceof String) ? !(modules || []).length : typeof modules == 'object' && !Buffer.isBuffer(modules) ? !(Object.keys(modules || {})).length : true) && retry <= 10)
+//   return modules
+// }
+
+let isInit = true, handler = require('./handler')
 global.reloadHandler = function (restatConn) {
-  let handler = imports('./handler')
+  let Handler = require('./handler')
+  if (Object.keys(Handler || {}).length) handler = Handler
   if (restatConn) {
     try { global.conn.ws.close() } catch { }
     global.conn = {
@@ -154,30 +161,31 @@ global.reloadHandler = function (restatConn) {
   }
   if (!isInit) {
     conn.ev.off('messages.upsert', conn.handler)
-    conn.ev.off('group-participants.update', conn.participantsUpdate)
+    conn.ev.off('group-participants.update', conn.onParticipantsUpdate)
     conn.ev.off('message.delete', conn.onDelete)
     conn.ev.off('connection.update', conn.connectionUpdate)
     conn.ev.off('creds.update', conn.credsUpdate)
   }
 
- conn.welcome = 'Yahh! Beban nya nambah deh:(\nSelamat datang member baru, di grup @subject\n\n@desc'
-  conn.bye = 'Sipp! Beban Berkurang satu'
+  conn.welcome = 'HALO @user 👋\n SELAMAT DATANG DI  @subject \n❋INTRO Kak❋\n-Nama =\n-Askot\n-Askot =/n/nMOGA BETAH YAH KAK😅' 
+  conn.bye = 'YAHHH @user Kenapa? \n KOK KELUAR DARI Group?\n\nGOODBYE 👋'
   conn.spromote = '@user sekarang admin!'
   conn.sdemote = '@user sekarang bukan admin!'
   conn.handler = handler.handler.bind(conn)
-  conn.participantsUpdate = handler.participantsUpdate.bind(conn)
+  conn.onParticipantsUpdate = handler.participantsUpdate.bind(conn)
   conn.onDelete = handler.delete.bind(conn)
   conn.connectionUpdate = connectionUpdate.bind(conn)
   conn.credsUpdate = saveState.bind(conn)
 
   conn.ev.on('messages.upsert', conn.handler)
-  conn.ev.on('group-participants.update', conn.participantsUpdate)
+  conn.ev.on('group-participants.update', conn.onParticipantsUpdate)
   conn.ev.on('message.delete', conn.onDelete)
   conn.ev.on('connection.update', conn.connectionUpdate)
   conn.ev.on('creds.update', conn.credsUpdate)
   isInit = false
   return true
 }
+
 let pluginFolder = path.join(__dirname, 'plugins')
 let pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
@@ -206,7 +214,7 @@ global.reload = (_ev, filename) => {
     else try {
       global.plugins[filename] = require(dir)
     } catch (e) {
-      conn.logger.error(e)
+      conn.logger.error(`error require plugin '${filename}\n${e}'`)
     } finally {
       global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)))
     }
@@ -260,3 +268,5 @@ async function _quickTest() {
 _quickTest()
   .then(() => conn.logger.info('Quick Test Done'))
   .catch(console.error)
+  
+console.log(color(time,"white"),color("[STATUS]","green"),color("Connecting...","aqua"))
