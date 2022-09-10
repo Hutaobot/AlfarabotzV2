@@ -40,10 +40,11 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "github:adiwajshing/baileys",
+        "@adiwajshing/baileys": "github:amiruldev20/baileys",
         "@adiwajshing/keyed-db": "^0.2.4",
-        "@bochilteam/scraper": "0.0.81",
+        "@bochilteam/scraper": "^2.0.0",
         "acrcloud": "^1.4.0",
+        "anonfile-lib": "^1.0.1",
         "async": "^3.2.3",
         "awesome-phonenumber": "^2.73.0",
         "axios": "^0.24.0",
