@@ -53,7 +53,7 @@ Hai, %ucapan %name! 👋
   body: ' • %cmd %islimit %isPremium',
   footer: '\n',
   after: `*Made by Irfaan Official*
-*%npmname* | %version
+*Alfarabotz* | %version
 ${'```%npmdesc```'}
 `,
 }
@@ -157,6 +157,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    let audio = `${pickRandom(['https://github.com/Hyuura/Rest-Sound'])}`
+    await conn.sendFile(m.chat, audio, 'error.mp3', null, m, true)
     conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Irfaan Official', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
     /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://github.com/Alfarabotz567', 'Website', '', '', [
       ['Donate', '/donasi'],
@@ -220,7 +222,9 @@ function clockString(ms) {
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
-
+function pickRandom(list) {
+     return list[Math.floor(Math.random() * list.length)]
+  }
 function ucapan() {
         const hour_now = moment.tz('Asia/Jakarta').format('HH')
         var ucapanWaktu = 'Pagi kak'
