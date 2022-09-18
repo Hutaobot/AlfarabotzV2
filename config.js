@@ -1,18 +1,18 @@
 let fs = require('fs')        
 let chalk = require('chalk')
 global.owner = [
-  ['6281646829895'],
-  ['6285624813115'],
-  ['6285624823115', 'Irfaan Official', true]  
+  ['6283854551575'],
+  ['6285722157719'],
+  ['6283854551575', 'A7 RAFLI', true]  
   
 ] 
-global.ownername = [['Irfaan Official']]
-global.namabot = [['Alfarabotz']]
+global.ownername = [['A7 RAFLI']]
+global.namabot = [['HU TAO BOT-MD']]
 global.ownerinsta = [['']]
-global.instalu = [['instagram.com/Irfaanabdulhafizh']]
+global.instalu = [['instagram.com/rafli_editz2']]
 global.ytlu = [['https://youtube.com/channel/UCaFh82MyrVgcgIvJxvTA39w']]
 global.mods = [] 
-global.prems = ['6281646829895'] 
+global.prems = ['6283854551575'] 
 
 global.APIs = { 
   nrtm: 'https://nurutomo.herokuapp.com',
@@ -43,8 +43,8 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 const spack = fs.readFileSync("lib/exif.json")
 const stickerpack = JSON.parse(spack)
 if (stickerpack.spackname == '') {
-  var sticker_name = 'Irfaan Official'
-  var sticker_author = '© Alfarabotz'
+  var sticker_name = 'HU TAO BOT-MD'
+  var sticker_author = '© A7 RAFLI'
 } else {
   var sticker_name = stickerpack.spackname
   var sticker_author = stickerpack.sauthor
@@ -59,9 +59,9 @@ fs.watchFile(file_exif, () => {
 })
 
 // Sticker WM
-global.packname = 'Irfaan Official'
-global.author = 'Alfarabotz'
-global.wm = '© Irfaan Official'
+global.packname = 'HU TAO BOT-MD'
+global.author = 'A7 RAFLI'
+global.wm = '© A7 RAFLI'
 
 global.multiplier = 100
 
