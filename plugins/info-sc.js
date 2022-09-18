@@ -1,11 +1,6 @@
-import fetch from 'node-fetch'
-let handler = async(m, { conn, text, usedPrefix, command }) => {
-let pp = await conn.profilePictureUrl(m.chat).catch(_ => null)
+let handler = m => m.reply('Hai kak ${name} lagi nyari sc yaa? \n\n\n_*https://wa.me/6285624823115?text=Assalamualaikum%20Bagi%20sc%20nya%20bg?*_')
 
-let str = `*https://github.com/Alfarabotz567*\nSubscribe Untuk Mengetahui Update Selanjutnya:https://youtube.com/channel/UCaFh82MyrVgcgIvJxvTA39w\nSilahkan follow github saya dibawah ,Terimakasih`
-conn.sendButtonDoc(m.chat, str, wm, 'Thanks','Bilek', ftextt, m)
-}
-handler.command = handler.help = ['sc']
-handler.tags = ['info']
+handler.customPrefix = /sc|Sc|Script|script/i
+handler.command = new RegExp
 
-export default handler
+module.exports = handler
