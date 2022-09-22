@@ -4,6 +4,6 @@ let babi = 'https://api.lolhuman.xyz/api/asupan?apikey=cd71d6b3f5c1352f55a46883'
 }
 handler.help = ['asupan']
 handler.tags = ['asupan']
-handler.command = /^(malaysia)$/i
+handler.command = /^(asupan)$/i
 
 module.exports = handler
