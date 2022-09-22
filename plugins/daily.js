@@ -18,7 +18,7 @@ let handler = async (m, { conn, isPrems }) => {
 					}, timeout)
     } 
 handler.help = ['daily']
-handler.tags = ['rpgabsen']
+handler.tags = ['info']
 handler.command = /^(daily)$/i
 handler.owner = false
 handler.mods = false
@@ -43,7 +43,7 @@ function msToTime(duration) {
     hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
     
   
-  hours = (hours < 10) ? "0" + hours : hours
+  hours = (hours < 20) ? "0" + hours : hours
   minutes = (minutes < 10) ? "0" + minutes : minutes
   seconds = (seconds < 10) ? "0" + seconds : seconds
 
