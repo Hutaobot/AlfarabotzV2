@@ -2,7 +2,7 @@ let fs = require('fs')
 let chalk = require('chalk')
 global.owner = [
   ['6283854551575'],
-  ['6285722157719'],
+  ['6281272716562'],
   ['6283854551575', 'A7 RAFLI', true]  
   
 ] 
@@ -12,7 +12,7 @@ global.ownerinsta = [['']]
 global.instalu = [['instagram.com/rafli_editz2']]
 global.ytlu = [['https://youtube.com/channel/UCaFh82MyrVgcgIvJxvTA39w']]
 global.mods = [] 
-global.prems = ['6283854551575'] 
+global.prems = [] 
 
 global.APIs = { 
   nrtm: 'https://nurutomo.herokuapp.com',
