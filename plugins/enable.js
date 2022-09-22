@@ -66,6 +66,14 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('rowner', m, conn)
         throw false
       }
+      global.opts['public'] = !isEnable
+      break
+    case 'self':
+      isAll = true
+      if (!isROwner) {
+        global.dfail('rowner', m, conn)
+        throw false
+      }
       global.opts['self'] = !isEnable
       break
     case 'antilink':
