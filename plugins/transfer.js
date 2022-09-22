@@ -79,7 +79,7 @@ let handler = async (m, { conn, args, usedPrefix, owner }) => {
 }
     
 handler.help = ['transfer']
-handler.tags = ['rpg']
+handler.tags = ['xp']
 handler.command = /^(transfer)$/i
 handler.owner = false
 handler.mods = false
