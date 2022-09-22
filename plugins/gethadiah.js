@@ -8,13 +8,13 @@ global.db.data.users[m.sender].lastlink = new Date * 1
 let codeh = ['736390','882910','882010','715611','002819','562622','432282','322929','662522','443321','937100','762837','028393','625529','727638','992719','092739','727269','629461','239210']
 let getRandom = codeh[Math.floor(Math.random() * codeh.length)]
 conn.reply(m.chat, `
-https://ponselharian.com/YoJw
+https://teknosimple.com/5zJi
 
 Contoh:
 1. Harap klik link tersebut
-2. Lalu scroll sampai paling bawah
+2. Lalu scroll sampai menemukan hitung mundur
 3. Klik tombol *Im not a robot*
-4. Lanjut klik *Click continue here*
+4. Lanjut klik *Click here to continue*
 5. Tutup *google crome*
 6. Tunggu hasilnya akan di proses  🎉
 
