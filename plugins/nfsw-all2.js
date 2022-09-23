@@ -6,5 +6,6 @@ handler.help = ['hollolewd', 'sideoppai', 'animefeets', 'animebooty', 'animethig
 handler.tags = ['nsfw']
 handler.command = /^(hollolewd|sideoppai|animefeets|animebooty|animethighss|animearmpits|lewdanimegirls|biganimetiddies)$/i
 handler.limit = true
+handler.premium = true
 //buatan hyzer, jgn hapus atuh 😊
 module.exports = handler
