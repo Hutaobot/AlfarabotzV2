@@ -12,7 +12,7 @@ let handler = async (m, { conn, command, usedPrefix, text }) => {
 
 handler.help = ['msg'].map(v => 'add' + v + ' <teks>')
 handler.tags = ['owner']
-handler.command = /^(addmsg|msgadd)$/i
+handler.command = /^(addlist|listadd)$/i
 
 handler.owner = true
 
