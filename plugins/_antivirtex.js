@@ -26,6 +26,76 @@ handler.all = async function (m, { isBlocked }) {
    conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
    }
    
+   let regk = /(â€Žâ€)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(ผิดุท้่เึางืผิดุท้่เึางื)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(๖ۣۜ¥₳ҜひƵ₳)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(ↁ❍̷ℳቾ์₦Δ̸̷̽)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /()/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(✪͜͡🔥✪͜͡💥)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(๑๑๑๑๑๑๑๑)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(๒๒๒๒๒๒๒๒)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(৭৭৭৭৭৭৭৭)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(ผิดุท้่เึางืผิดุท้่เึางื)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.sendMessage(m.chat, { delete: m.key })
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
    // tambahin sendiri code virus WhatsApp.. Contohnya di bawah
   
    // let abc1 = /(virusnya)/i
