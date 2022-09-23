@@ -383,6 +383,7 @@ handler.command = handler.help = [
 'yuki'
 ]
 handler.tags = ['anime']
+handler.premium = true
 handler.limit = true
 
 module.exports = handler
