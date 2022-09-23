@@ -18,7 +18,7 @@ let handler = async (m, { conn, isPrems }) => {
 					}, timeout)
     } 
 handler.help = ['daily']
-handler.tags = ['info']
+handler.tags = ['hadiah']
 handler.command = /^(daily)$/i
 handler.owner = false
 handler.mods = false
