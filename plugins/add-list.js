@@ -10,7 +10,7 @@ let handler = async (m, { conn, command, usedPrefix, text }) => {
     m.reply(`Berhasil menambahkan pesan '${text}'\n\nAkses dengan mengetik namanya`.trim())
 }
 
-handler.help = ['msg'].map(v => 'add' + v + ' <teks>')
+handler.help = ['list'].map(v => 'add' + v + ' <teks>')
 handler.tags = ['owner']
 handler.command = /^(addlist|listadd)$/i
 
