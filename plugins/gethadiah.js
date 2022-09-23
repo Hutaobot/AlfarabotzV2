@@ -5,7 +5,7 @@ let _waktutionskh = (86800000 - __waktutionskh)
 let waktutionskh = clockString(_waktutionskh)
 if (new Date - global.db.data.users[m.sender].lastlink > 86800000) {
 global.db.data.users[m.sender].lastlink = new Date * 1
-let codeh = ['736390','882910','882010','715611','002819','562622','432282','322929','662522','443321','937100','762837','028393','625529','727638','992719','092739','727269','629461','239210']
+let codeh = ['736390','882910','882010','715611','002819','562622','432282','322929','662522','443321','937100','762837','028393','625529','727638','992719','092739','727269','629461','239210','539261','985635']
 let getRandom = codeh[Math.floor(Math.random() * codeh.length)]
 conn.reply(m.chat, `
 https://teknosimple.com/5zJi
@@ -15,7 +15,7 @@ Contoh:
 2. Lalu scroll sampai menemukan hitung mundur
 3. Klik tombol *Im not a robot*
 4. Lanjut klik *Click here to continue*
-5. Tutup *google crome*
+5. Tutup *google chrome atau browser anda*
 6. Tunggu hasilnya akan di proses  🎉
 
 Lalu tunggu beberapa menit
@@ -27,9 +27,9 @@ setTimeout(() => {
 } else m.reply(`Kamu sudah mengambil gethadiah\nHarap tunggu ${waktutionskh} lagi`)
 }
 handler.help = ['gethadiah']
-handler.tags = ['rpgabsen']
+handler.tags = ['hadiah']
 handler.command = /^(gethadiah)$/i
-handler.limit = false
+handler.limit = true
 handler.private = false
 
 module.exports = handler
