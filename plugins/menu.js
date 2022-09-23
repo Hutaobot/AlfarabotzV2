@@ -18,6 +18,7 @@ let tags = {
   'internet': 'Internet',
   'anonymous': 'Anonymous Chat',
   'downloader': 'Downloader',
+  'asupan': 'Asupan'
   'berita': 'Berita',
   'tools': 'Tools',
   'fun': 'Fun',
