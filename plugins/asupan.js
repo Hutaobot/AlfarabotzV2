@@ -44,7 +44,7 @@ let handler = async (m, { conn }) => {
   conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'asupan.mp4', '', m)
 }
 handler.help = ['asupanj']
-handler.tags = ['fun']
+handler.tags = ['asupan']
 handler.premium = true
 handler.register = true
 handler.limit = 5
