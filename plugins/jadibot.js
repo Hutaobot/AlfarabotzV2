@@ -65,7 +65,7 @@ QR akan Expired !
 
 
 handler.help = ['jadibot']
-handler.tags = ['jadibot']
+handler.tags = ['info']
 
 handler.command = /^jadibot$/i
 
