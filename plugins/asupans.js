@@ -4,7 +4,7 @@ let handler = async (m, { conn }) => {
 handler.help = ['asupan']
 handler.tags = ['asupan']
 
-handler.command = /^(asupan2)$/i
+handler.command = /^(asupan)$/i
 handler.premium = false
 handler.register = true
 handler.limit = 5
