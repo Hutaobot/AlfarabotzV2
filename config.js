@@ -36,6 +36,7 @@ global.APIKeys = {
   'https://leyscoders-api.herokuapp.com': 'dappakntlll',
   'https://x-restapi.herokuapp.com': 'BETA',
   'https://api-alphabot.herokuapp.com': 'N7axnIq3'
+  'https://kanjiapi.dev': 'v1'
 }
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
