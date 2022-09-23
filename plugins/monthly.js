@@ -1,7 +1,7 @@
 const free = 20000
 const prem = 40000
-const limitfree = 20
-const limitprem = 40
+const limitfree = 10
+const limitprem = 25
 const moneyfree = 20000
 const moneyprem = 40000
 
@@ -17,7 +17,7 @@ let handler = async (m, { isPrems }) => {
         global.db.data.users[m.sender].lastmonthly = new Date * 1
     }
 handler.help = ['monthly']
-handler.tags = ['rpgabsen']
+handler.tags = ['hadiah']
 handler.command = /^(monthly)$/i
 handler.limit = true
 
