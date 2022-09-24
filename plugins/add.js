@@ -53,13 +53,14 @@ let handler = async (m, { conn, text, participants, usedPrefix, command }) => {
     }
 }
 handler.help = ['add'].map(v => v + ' @user')
-handler.tags = ['group']
+handler.tags = ['admin']
 handler.command = /^(add)$/i
 
 handler.admin = true
 handler.group = true
 handler.botAdmin = true
 handler.fail = null
+
 
 module.exports = handler
 
@@ -86,6 +87,7 @@ handler.command = /^(add)$/i
 handler.admin = true
 handler.group = true
 handler.botAdmin = true
+handler.limit = true
 
 module.exports = handler
 */
