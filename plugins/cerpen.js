@@ -4,7 +4,7 @@ Made by Aine
 
 let fetch = require('node-fetch')
 let handler = async (m, { text }) => {
-  let url = await fetch('https://masgi.herokuapp.com/api/cerpen')
+  let url = await fetch('https://yog-apikey.herokuapp.com/api/cerpen')
   let cerpen = await url.json()
 let hasil = `
 *Powered By ${global.wm}*
