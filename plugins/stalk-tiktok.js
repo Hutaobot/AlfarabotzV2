@@ -5,7 +5,7 @@ let handler = async(m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, 'Harap Masukan Username', m)
 
   await m.reply('Searching...')
-    let res = await fetch(`https://x-restapi.herokuapp.com/api/tiktok-stalk?username=${text}&apikey=BETA`)
+    let res = await fetch(`https://yog-apikey.herokuapp.com/api/stalk/tiktok?username=${text}&apikey=YogGanz`)
     let json = await res.json()
     if (res.status !== 200) throw await res.text()
     if (!json.status) throw json
